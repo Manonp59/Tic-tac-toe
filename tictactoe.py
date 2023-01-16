@@ -62,14 +62,18 @@ def gagnant(grille):
     else :
         pass
 
-    
 
+def grille_complete(grille):
+    if " " in grille[0] or " " in grille[1] or " " in grille[2]:
+        return False
+    else:
+        return True
 
 def partie():
     joueur1 = input('Entrez le nom du joueur 1 : ') 
     joueur2 = input('Entrez le nom du joueur 2 : ')
     print(f'Bonjour {joueur1} et {joueur2}')
-    while " " in grille[0] or " " in grille[1] or " " in grille[2]:
+    while not grille_complete:
             afficher_grille(grille)
             jouer_coup_1(grille)
             afficher_grille(grille)
@@ -84,4 +88,10 @@ def partie():
         print('Match nul.')
    
 
-partie()
+# partie()
+
+afficher_grille(grille)
+grille_complete(grille)
+    
+if not grille_complete(grille):
+    print('ok')
